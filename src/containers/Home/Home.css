@@ -1,0 +1,15 @@
+.home-full-screen {
+  min-height: 100vh;
+}
+
+.home-fill-available-space {
+  height: 100%
+}
+
+.home-fill-half-space {
+  height: 50%
+}
+
+.home-spinner {
+  display: inline-block;
+}
