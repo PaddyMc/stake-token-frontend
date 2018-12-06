@@ -38,8 +38,20 @@ export const transferTokens = () => async (dispatch, getState) => {
   const [account] = await web3.eth.getAccounts();
 
   if(!transferForm.syncErrors){
+    dispatch(updateLoaded(false))
+    var staked = staketoken.events.Transfer({from: account})
+    staked.subscribe((err, result) => { 
+      if (err) {
+        return;
+      }
+
+      dispatch(getHomeData())
+    });
+
     await staketoken.methods.transfer(transferForm.values.address, web3.utils.toWei(transferForm.values.amount, "ether")).send({
       from: account 
+    }).catch((err) => {
+      dispatch(updateLoaded(true))
     })
   }
 }
@@ -107,7 +119,7 @@ export const validateStake = values => {
   const errors = {}
   if (!values.stake) {
     errors.stake = ''
-  } else if (!/^\d+$/.test(values.stake)) {
+  } else if (!/^\d.+$/.test(values.stake)) {
     errors.stake = "Please enter a number"
   }
   return errors
@@ -121,7 +133,7 @@ export const validateTransfer = (values) => {
     errors.address = 'Please ensure the Ethereum Address is correct'
   } else if (!values.amount) {
     errors.amount = ''
-  } else if (!/^\d+$/.test(values.amount)){
+  } else if (!/^\d.+$/.test(values.amount)){
     errors.amount = "Please enter a number"
   }
   return errors
