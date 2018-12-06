@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { renderField } from '../RenderFormField/RenderFormField'
-//import { validateTransfer } from '../../actions/actions'
+import { validateTransfer as validate } from '../../actions/actions'
 import'./TransferForm.css';
 
 let TransferForm = props => {
@@ -35,7 +35,7 @@ let TransferForm = props => {
 
 TransferForm = reduxForm({
   form: 'transfer',
-  //validateTransfer
+  validate
 })(TransferForm)
 
 export default TransferForm

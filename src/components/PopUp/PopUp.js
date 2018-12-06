@@ -6,7 +6,6 @@ const contentStyle = {
   maxWidth: "600px",
   width: "100%",
   backgroundColor: "#282c34",
-  // height: "40%",
   borderRadius: "15px 15px 15px 15px"
 };
 
@@ -24,7 +23,7 @@ const CustomPopUp = props => {
       contentStyle={contentStyle}
     >
     {close => (
-      <div className="modal-container">
+      <div>
         <div className="header"><b>{buttonText}</b></div>
         <hr />
         <Content

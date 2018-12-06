@@ -10,6 +10,6 @@ export const renderField = ({
     <div>
       <input className="stake-from-input"  {...input} placeholder={label} type={type} />
       {touched &&
-        (error && <span>{error}</span>)}
+        (error && <div className="app-text">{error}</div>)}
     </div>
 )

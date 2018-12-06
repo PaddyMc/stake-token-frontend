@@ -47,22 +47,18 @@ class Home extends Component {
           loaded ? 
             (
               <div className="home-fill-available-space">
-                <div>
-                  <StakerInfo 
-                    numberOfTokens={numberOfTokens}
-                    time={time}
-                    returnTokens={returnTokens}
-                    redeemed={redeemed}
-                    precentGained={precentGained}
-                  />
-                </div>
-                <div>
-                  <ContractActions 
-                    transferTokens={transferTokens}
-                    stake={stake}
-                    redeemStake={redeemStake}
-                  />
-                </div>
+                <StakerInfo 
+                  numberOfTokens={numberOfTokens}
+                  time={time}
+                  returnTokens={returnTokens}
+                  redeemed={redeemed}
+                  precentGained={precentGained}
+                />
+                <ContractActions 
+                  transferTokens={transferTokens}
+                  stake={stake}
+                  redeemStake={redeemStake}
+                />
               </div>
             ) : (
               <div className="home-spinner">
