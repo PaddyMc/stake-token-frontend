@@ -20,7 +20,7 @@
 
 .app-text {
   color: white;
-  padding: 10px;
+  padding: 7.5px;
 }
 
 .app-button {
@@ -28,7 +28,7 @@
   cursor: pointer;
   padding: 0px 30px;
   display: inline-block;
-  margin: 10px 15px;
+  margin: 5px 7px;
   text-transform: uppercase;
   line-height: 2em;
   letter-spacing: 1.5px;
@@ -57,10 +57,14 @@
 .app-button-container-full-length {
   display: inline-grid;
   width:100%;
-  padding: 2%;
+  padding: 1%;
 }
 
 .info-header {
   text-align: left !important;
   margin-left: 2.3%;
+}
+
+.app-home-height{
+  height: 85%;
 }
