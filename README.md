@@ -4,6 +4,8 @@
 [Link to Stake Token (STK) Smart Contract source code] (https://github.com/PaddyMc/stake-token)
 
 <p>Built using React & Redux</p>
+<p>node version = v10.14.1</p>
+<p>npm version  = 6.4.1</p>
 
 <h2>To add a new contact instance or staker account</h2>
 <ul>

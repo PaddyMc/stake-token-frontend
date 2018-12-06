@@ -119,7 +119,7 @@ export const validateStake = values => {
   const errors = {}
   if (!values.stake) {
     errors.stake = ''
-  } else if (!/^\d.+$/.test(values.stake)) {
+  } else if (!/\d+(?:\.\d{1,2})?$/.test(values.stake)) {
     errors.stake = "Please enter a number"
   }
   return errors
@@ -133,7 +133,7 @@ export const validateTransfer = (values) => {
     errors.address = 'Please ensure the Ethereum Address is correct'
   } else if (!values.amount) {
     errors.amount = ''
-  } else if (!/^\d.+$/.test(values.amount)){
+  } else if (!/\d+(?:\.\d{1,2})?$/.test(values.amount)){
     errors.amount = "Please enter a number"
   }
   return errors

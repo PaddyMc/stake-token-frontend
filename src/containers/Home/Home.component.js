@@ -61,8 +61,11 @@ class Home extends Component {
                 />
               </div>
             ) : (
-              <div className="home-spinner">
-                <Spinner name="cube-grid" fadeIn='none' color="white"/>
+              <div className="home-fill-available-space">
+                <div className="home-spinner ">
+                  <Spinner name="cube-grid" fadeIn='none' color="white"/>
+                </div>
+                <div className="app-text">Fetching data from the Ethereum blockchain...</div>
               </div>
             )
         }

@@ -1,15 +1,7 @@
 .footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  margin-left: 19.5%;
-  margin-right: 19.5%;
   text-align: center;
 }
 
-.footer-small-text-align {
-  float: right;
-  margin-right: 5%;
+.footer-text-size {
+  font-size: 20px;
 }

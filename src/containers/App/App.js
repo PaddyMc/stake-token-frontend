@@ -9,7 +9,7 @@ class App extends Component {
       <div>
         <ParticlesBackground />
         <div className="App">
-          <Home></Home>
+          <Home />
         </div>
       </div>
     );
