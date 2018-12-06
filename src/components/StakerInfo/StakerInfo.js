@@ -53,7 +53,7 @@ const StakerInfo = props => {
           ) : (
             <div>
               <div className="app-text">User has not staked</div>
-              <div className="app-text">Please click on the STAKE ETHER button below to stake and recieve some tokens</div>
+              <div className="app-text">Please click on the STAKE ETHER button below to stake and recieve STK tokens</div>
             </div>
           )
       }

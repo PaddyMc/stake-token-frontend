@@ -1,9 +1,11 @@
 <h1>Stake Token Frontend</h1>
-<p>Allows users to stake Ether (ETH) in exchange for Stake (STK) and after a period of time get more ETH than the user has invested</p>
+<p>Allows users to stake Ether (ETH) in exchange for Stake (STK) and after a period of time the user gets more ETH than initially invested</p>
 
-<p>[Link to Stake Token (STK) Smart Contract source code] (https://github.com/PaddyMc/stake-token)</p>
+[Link to Stake Token (STK) Smart Contract source code] (https://github.com/PaddyMc/stake-token)
 
-<h2>To add a new contact instance or staker account<h2>
+<p>Built using React & Redux</p>
+
+<h2>To add a new contact instance or staker account</h2>
 <ul>
   <li>
     Replace the RINKEBY variable or your preferred network variable in constants/constants.js
@@ -12,7 +14,7 @@
     Replace the STAKEADDRESS variable in constants/constants.js with the stake address defined in the Stake token (STK) smart contract
   </li>
   <li>
-    Changes to the smartcontract network must be reflected in services/contract-utils/web3.js
+    Changes to the Smart Contracts network must be reflected in services/contract-utils/staketoken.js
   </li>
 </ul>
 <hr/>
@@ -27,6 +29,7 @@
   </li>
 </ul>
 <hr/>
+
 <h2>To test</h2>
 <ul>
   <li>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { renderField } from '../RenderFormField/RenderFormField'
-import { validateStake } from '../../actions/actions'
+import { validateStake as validate } from '../../actions/actions'
 import'./StakeForm.css';
 
 let StakeForm = props => {
@@ -29,7 +29,7 @@ let StakeForm = props => {
 
 StakeForm = reduxForm({
   form: 'stake',
-  validateStake
+  validate
 })(StakeForm)
 
 export default StakeForm

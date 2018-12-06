@@ -34,41 +34,46 @@ export const getHomeData = () => async (dispatch) => {
 }
 
 export const transferTokens = () => async (dispatch, getState) => {
-  const transferForm = getState().form.transfer.values
+  const transferForm = getState().form.transfer
   const [account] = await web3.eth.getAccounts();
 
-  await staketoken.methods.transfer(transferForm.address, web3.utils.toWei(transferForm.amount, "ether")).send({
-    from: account 
-  })
+  if(!transferForm.syncErrors){
+    await staketoken.methods.transfer(transferForm.values.address, web3.utils.toWei(transferForm.values.amount, "ether")).send({
+      from: account 
+    })
+  }
 }
 
 export const stake = () => async (dispatch, getState) => {
-  const stakeForm = getState().form.stake.values
-  dispatch(updateLoaded(false))
-  const [account] = await web3.eth.getAccounts();
+  const stakeForm = getState().form.stake
 
-  var staked = staketoken.events.Staked({from: account});
-  staked.subscribe((err, result) => { 
-    if (err) {
-      return;
-    }
+  if(!stakeForm.syncErrors){
+    dispatch(updateLoaded(false))
+    const [account] = await web3.eth.getAccounts();
 
-    dispatch(getHomeData())
-  });
+    var staked = staketoken.events.Staked({from: account})
+    staked.subscribe((err, result) => { 
+      if (err) {
+        return;
+      }
 
-  await staketoken.methods.stake().send({
-    from: account,
-    value: web3.utils.toWei(stakeForm.stake, "ether")
-  }).catch((err) => {
-    dispatch(updateLoaded(true))
-  })
+      dispatch(getHomeData())
+    });
+
+    await staketoken.methods.stake().send({
+      from: account,
+      value: web3.utils.toWei(stakeForm.values.stake, "ether")
+    }).catch((err) => {
+      dispatch(updateLoaded(true))
+    })
+  }
 }
 
 export const redeemStake = () => async (dispatch) => {
   dispatch(updateLoaded(false))
   const [account] = await web3.eth.getAccounts();
 
-  var paidOut = staketoken.events.PaidOut({from: account});
+  var paidOut = staketoken.events.PaidOut({from: account})
   paidOut.subscribe((err, result) => { 
     if (err) {
       return;
@@ -98,20 +103,26 @@ const getStakeAccount = async () => {
   return stakerInfo
 }
 
-export const validateStake = (values) => {
+export const validateStake = values => {
   const errors = {}
   if (!values.stake) {
-    errors.stake = 'Required'
-  } 
+    errors.stake = ''
+  } else if (!/^\d+$/.test(values.stake)) {
+    errors.stake = "Please enter a number"
+  }
   return errors
 }
 
 export const validateTransfer = (values) => {
   const errors = {}
   if (!values.address) {
-    errors.address = 'Required'
+    errors.address = ''
+  } else if (!web3.utils.isAddress(values.address)) {
+    errors.address = 'Please ensure the Ethereum Address is correct'
   } else if (!values.amount) {
-    errors.amount = 'Required'
+    errors.amount = ''
+  } else if (!/^\d+$/.test(values.amount)){
+    errors.amount = "Please enter a number"
   }
   return errors
 }
