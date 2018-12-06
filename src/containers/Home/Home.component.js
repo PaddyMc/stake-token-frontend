@@ -66,7 +66,7 @@ class Home extends Component {
               </div>
             ) : (
               <div className="home-spinner">
-                <Spinner name="wave" fadeIn='none' color="white"/>
+                <Spinner name="cube-grid" fadeIn='none' color="white"/>
               </div>
             )
         }
