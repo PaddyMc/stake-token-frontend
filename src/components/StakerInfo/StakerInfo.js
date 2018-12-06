@@ -52,8 +52,10 @@ const StakerInfo = props => {
             </div>
           ) : (
             <div>
-              <div className="app-text">User has not staked</div>
-              <div className="app-text">Please click on the STAKE ETHER button below to stake and recieve STK tokens</div>
+              <div className="app-text"><b><u>Account has not staked</u></b></div>
+              <div className="app-text">Please read `DETAILS OF USE` before staking ETH against STK</div>
+              <div className="app-text">Please click on the `STAKE ETHER` button below to stake and recieve STK tokens</div>
+              <div className="app-text">Enjoy being part of the Ethereum POS without having to freeze any ETH</div>
             </div>
           )
       }
